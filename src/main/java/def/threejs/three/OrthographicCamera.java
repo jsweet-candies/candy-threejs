@@ -47,9 +47,6 @@ public class OrthographicCamera extends Camera {
          * Updates the camera projection matrix. Must be called after change of parameters.
          */
     native public void updateProjectionMatrix();
-    @jsweet.lang.Name("clone")
-    native public OrthographicCamera Clone();
-    native public OrthographicCamera copy(OrthographicCamera source);
     native public Object toJSON(Object meta);
     /**
          * @param left Camera frustum left plane.

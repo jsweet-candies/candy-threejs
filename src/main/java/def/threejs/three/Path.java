@@ -15,7 +15,6 @@ public class Path extends CurvePath<Vector2> {
     native public void absarc(double aX, double aY, double aRadius, double aStartAngle, double aEndAngle, Boolean aClockwise);
     native public void ellipse(double aX, double aY, double xRadius, double yRadius, double aStartAngle, double aEndAngle, Boolean aClockwise, double aRotation);
     native public void absellipse(double aX, double aY, double xRadius, double yRadius, double aStartAngle, double aEndAngle, Boolean aClockwise, double aRotation);
-    native public Vector2[] getPoints(double divisions, Boolean closedPath);
     native public Shape[] toShapes(Boolean isCCW, Object noHoles);
     public Path(){}
 }

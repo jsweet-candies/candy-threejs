@@ -23,7 +23,6 @@ public class ShaderMaterial extends Material {
     @jsweet.lang.Name("clone")
     native public ShaderMaterial Clone();
     native public ShaderMaterial copy(ShaderMaterial source);
-    native public Object toJSON(Object meta);
     /** This is an automatically generated object type (see the source definition). */
     @jsweet.lang.ObjectType
     public static class Extensions extends def.js.Object {

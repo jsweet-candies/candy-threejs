@@ -10,7 +10,6 @@ public class LOD extends Object3D {
     @jsweet.lang.Name("clone")
     native public LOD Clone();
     native public LOD copy(LOD source);
-    native public Object toJSON(Object meta);
     native public void addLevel(Object3D object);
 }
 

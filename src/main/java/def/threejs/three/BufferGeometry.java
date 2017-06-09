@@ -106,7 +106,6 @@ public class BufferGeometry extends def.js.Object {
         public String type;
         native public java.lang.Object $get(String attachment);
     }
-    native public void addGroup(double start, double count);
     native public BufferGeometry fromGeometry(Geometry geometry);
     native public void addDrawCall(Object start, Object count);
     native public BufferGeometry addAttribute(String name, InterleavedBufferAttribute attribute);

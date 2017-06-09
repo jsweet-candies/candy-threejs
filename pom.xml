@@ -67,9 +67,9 @@
 				<configuration>
 					<verbose>true</verbose>
 					<bundle>true</bundle>
+					<ignoreDefinitions>true</ignoreDefinitions>
 					<outDir>src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}/sources</outDir>
-					<tsOut>src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}/sources</tsOut>
-					<targetVersion>ES6</targetVersion>
+					<targetVersion>ES5</targetVersion>
 				</configuration>
 				<executions>
 					<execution>

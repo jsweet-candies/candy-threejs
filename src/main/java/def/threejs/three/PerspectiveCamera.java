@@ -83,9 +83,6 @@ public class PerspectiveCamera extends Camera {
          * Updates the camera projection matrix. Must be called after change of parameters.
          */
     native public void updateProjectionMatrix();
-    @jsweet.lang.Name("clone")
-    native public PerspectiveCamera Clone();
-    native public PerspectiveCamera copy(PerspectiveCamera source);
     native public Object toJSON(Object meta);
     /**
          * @param fov Camera frustum vertical field of view. Default value is 50.
