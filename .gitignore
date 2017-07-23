@@ -1,6 +1,6 @@
-/target/
-/bin/
-/.classpath
-/.project
-/.settings/
-/.jsweet/
+**/target/
+**/bin/
+**/.classpath
+**/.project
+**/.settings/
+**/.jsweet/
