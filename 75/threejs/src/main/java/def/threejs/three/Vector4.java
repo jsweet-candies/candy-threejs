@@ -5,7 +5,7 @@ package def.threejs.three;
  *
  * ( class Vector4 implements Vector<Vector4> )
  */
-public class Vector4 extends Vector {
+public class Vector4 extends Vector<Vector4> {
 	public Vector4(double x, double y, double z, double w) {
 	}
 
@@ -14,6 +14,11 @@ public class Vector4 extends Vector {
 	public double z;
 	public double w;
 
+	// NOT AVAILABLE
+	native public double distanceTo(Vector4 v);
+	native public double distanceToSquared(Vector4 v);
+
+	native public Vector4 clone();
 	/**
 	 * Sets value of this vector.
 	 */
@@ -48,12 +53,12 @@ public class Vector4 extends Vector {
 
 	native public double getComponent(double index);
 
-	public native Vector copy(Vector v);
+	public native Vector4 copy(Vector4 v);
 
 	/**
 	 * Adds v to this vector.
 	 */
-	native public Vector add(Vector v);
+	native public Vector4 add(Vector4 v);
 
 	native public Vector4 addScalar(double s);
 
