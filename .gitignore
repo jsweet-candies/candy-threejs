@@ -1,7 +1,9 @@
 **/target/
+**/dist/
 **/bin/
 **/.classpath
 **/.project
 **/.settings/
 **/.jsweet/
 75/threejs/threejs
+89/threejs
