@@ -32,5 +32,6 @@ export * from "./three-trackballcontrols";
 export * from "./three-transformcontrols";
 export * from "./three-vrcontrols";
 export * from "./three-vreffect";
+export * from "./three-extra-shaders";
 
 export as namespace THREE;

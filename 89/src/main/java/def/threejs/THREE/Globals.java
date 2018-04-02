@@ -164,5 +164,8 @@ public final class Globals {
     native public static HTMLElement getWebGLErrorMessage();
     native public static void addGetWebGLMessage(Parameters parameters);
     native public static void addGetWebGLMessage();
+    
+    public static Shader BleachBypassShader;
+   	public static Shader ColorCorrectionShader;
 }
 
