@@ -1,9 +1,14 @@
 # JSweet threejs candy
 
+## Upgrade candy
 
-Upgrade TS defintions by deleting previous folder and creating yours in 
-src/main/resources/META-INF/resources/typings/threejs/XX-XXXXX/
-Copy back the module.d.ts (which declares main module)
+1. Clone the official candy repository https://github.com/jsweet-candies/candy-threejs 
+2. Create a folder for your version (copy it from the last version)
+3.A Either edit the JSweet definitions directly (recommended, easier)
+3.B or generate new ones from the latest .d.ts NB: if you do this, you will need to override the existing in 
+src/main/resources/META-INF/resources/typings/threejs/XX-XXXXX/ and add modified definitions (three-extra-shaders.d.ts)
+4. Remove the old src/main/resources/META-INF/resources/typings/threejs/XX-XXXXX/ directory
+5. mvn clean install/deploy
 
 ## Description
 
