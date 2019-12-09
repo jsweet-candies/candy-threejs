@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jsweet.candies</groupId>
 	<artifactId>threejs</artifactId>
-	<version>89-20191209-3</version>
+	<version>89-20191209-4</version>
 	<properties>
 		<jsweet.transpiler.version>3.0.0-SNAPSHOT</jsweet.transpiler.version>
 		<jsweet.core.version>6.0.2</jsweet.core.version>
@@ -73,8 +73,8 @@
 				<configuration>
 					<verbose>true</verbose>
 					<bundle>true</bundle>
-					<tsOut>src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</tsOut>
 					<declaration>false</declaration>
+					<tsOut>target/ts</tsOut>
 					<tsOnly>true</tsOnly>
 					<targetVersion>ES5</targetVersion>
 					<encoding>UTF-8</encoding>
@@ -85,31 +85,6 @@
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>jsweet</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<configuration>
-							<target>
-								<echo message="copying generated bundles to dist..." />
-
-								<mkdir dir="dist/"></mkdir>
-
-								<copy
-									file="src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}/bundle.d.ts"
-									tofile="dist/${project.artifactId}.d.ts" verbose="true"
-									failonerror="false" />
-							</target>
-						</configuration>
-						<goals>
-							<goal>run</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -162,28 +137,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>src/main/resources/META-INF/resources/webjars</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-						<fileset>
-							<directory>src/main/resources/META-INF/resources/typings</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-					</filesets>
-				</configuration>
 			</plugin>
 		</plugins>
 
