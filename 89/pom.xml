@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jsweet.candies</groupId>
 	<artifactId>threejs</artifactId>
-	<version>89-20191209</version>
+	<version>89-20191209-3</version>
 	<properties>
 		<jsweet.transpiler.version>3.0.0-SNAPSHOT</jsweet.transpiler.version>
 		<jsweet.core.version>6.0.2</jsweet.core.version>
@@ -73,7 +73,7 @@
 				<configuration>
 					<verbose>true</verbose>
 					<bundle>true</bundle>
-					<tsOut>target/ts</tsOut>
+					<tsOut>src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</tsOut>
 					<declaration>false</declaration>
 					<tsOnly>true</tsOnly>
 					<targetVersion>ES5</targetVersion>
