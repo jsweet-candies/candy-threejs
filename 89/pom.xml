@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jsweet.candies</groupId>
 	<artifactId>threejs</artifactId>
-	<version>89.20191209.7</version>
+	<version>89.20191209.8</version>
 	<properties>
 		<jsweet.transpiler.version>3.0.0-SNAPSHOT</jsweet.transpiler.version>
 		<jsweet.core.version>6.1.0-SNAPSHOT</jsweet.core.version>
