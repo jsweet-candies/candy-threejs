@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jsweet.candies</groupId>
 	<artifactId>threejs</artifactId>
-	<version>89.20191209.5</version>
+	<version>89.20191209.7</version>
 	<properties>
 		<jsweet.transpiler.version>3.0.0-SNAPSHOT</jsweet.transpiler.version>
-		<jsweet.core.version>6.0.2</jsweet.core.version>
+		<jsweet.core.version>6.1.0-SNAPSHOT</jsweet.core.version>
 		<java.version.release>11</java.version.release>
 		<java.version>1.${java.version.release}</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -57,12 +57,15 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.8.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>UTF-8</encoding>
-					<fork>true</fork>
+					<release>${java.version.release}</release>
+					<compilerVersion>${java.version}</compilerVersion>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<compilerArgs>
+					</compilerArgs>
 				</configuration>
 			</plugin>
 
@@ -76,7 +79,7 @@
 					<declaration>false</declaration>
 					<tsOut>target/ts</tsOut>
 					<tsOnly>true</tsOnly>
-					<targetVersion>ES5</targetVersion>
+					<targetVersion>ES6</targetVersion>
 					<encoding>UTF-8</encoding>
 				</configuration>
 				<executions>
@@ -112,9 +115,8 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>
+				<version>3.1.1</version>
 				<configuration>
-					<javadocVersion>1.8</javadocVersion>
 					<sourcepath>src/main/java</sourcepath>
 					<skip>${skipJavadoc}</skip>
 					<encoding>UTF-8</encoding>
