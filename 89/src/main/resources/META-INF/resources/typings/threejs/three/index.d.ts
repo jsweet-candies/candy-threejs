@@ -35,7 +35,3 @@ export * from "./three-vreffect";
 export * from "./three-extra-shaders";
 
 export as namespace THREE;
-
-declare module "three" {
-    export = THREE;
-}
