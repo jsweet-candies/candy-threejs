@@ -2,15 +2,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jsweet.candies</groupId>
+	<groupId>org.jsweet.v3.candies</groupId>
 	<artifactId>threejs</artifactId>
-	<version>89.20200104.9</version>
+	<version>89-20200915</version>
 	<properties>
 		<jsweet.transpiler.version>3.0.0-SNAPSHOT</jsweet.transpiler.version>
-		<jsweet.core.version>6.1.0-SNAPSHOT</jsweet.core.version>
+		<jsweet.core.version>6.0.0</jsweet.core.version>
+
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version.release>11</java.version.release>
 		<java.version>1.${java.version.release}</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
 		<repository>
@@ -40,11 +43,10 @@
 	</pluginRepositories>
 	<dependencies>
 		<dependency>
-			<groupId>org.jsweet</groupId>
+			<groupId>org.jsweet.v3</groupId>
 			<artifactId>jsweet-core</artifactId>
 			<version>${jsweet.core.version}</version>
 		</dependency>
-
 	</dependencies>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -65,6 +67,7 @@
 					<target>${java.version}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 					<compilerArgs>
+
 					</compilerArgs>
 				</configuration>
 			</plugin>
@@ -80,7 +83,10 @@
 					<tsOut>target/ts</tsOut>
 					<tsOnly>true</tsOnly>
 					<targetVersion>ES6</targetVersion>
-					<encoding>UTF-8</encoding>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<excludes>
+						<exclude>**jsweet/util/function/**</exclude>
+					</excludes>
 				</configuration>
 				<executions>
 					<execution>
@@ -90,12 +96,44 @@
 							<goal>jsweet</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 
 			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<echo message="copying generated bundles to dist..." />
+
+								<mkdir dir="dist/"></mkdir>
+
+								<copy
+									file="src/main/resources/src/typings/${project.artifactId}/${project.version}/bundle.d.ts"
+									tofile="dist/${project.artifactId}.d.ts" verbose="true"
+									failonerror="false" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -119,7 +157,7 @@
 				<configuration>
 					<sourcepath>src/main/java</sourcepath>
 					<skip>${skipJavadoc}</skip>
-					<encoding>UTF-8</encoding>
+					<encoding>${project.build.sourceEncoding}</encoding>
 					<fixTags>all</fixTags>
 					<failOnError>false</failOnError>
 					<!-- leave these options unchanged to place the Javadoc at the right 
